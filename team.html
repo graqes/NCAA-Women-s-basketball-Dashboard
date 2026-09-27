@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCAA Women's Basketball - Team Detail</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#scatter-heading">Skip to the game chart</a>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <h1 id="team-heading">Loading team...</h1>
+        <p class="subtitle" id="team-record">&nbsp;</p>
+      </div>
+      <span id="source-pill" class="source-pill">Connecting...</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="scatter-heading">
+      <h2 id="scatter-heading">Every game: box score stat vs points scored</h2>
+
+      <div class="controls">
+        <div class="field">
+          <label for="season-select">Season</label>
+          <select id="season-select"></select>
+        </div>
+        <div class="field">
+          <label id="stat-label" for="stat-toggles">Statistic on the x-axis</label>
+          <div class="toggle-group" id="stat-toggles" role="group"
+               aria-labelledby="stat-label"></div>
+        </div>
+      </div>
+
+      <div class="chart-box tall">
+        <canvas id="scatter-chart" role="img"
+                aria-label="Scatter plot of the selected statistic against points scored, one dot per game"></canvas>
+      </div>
+
+      <p id="scatter-status" class="status" role="status">Loading games...</p>
+    </section>
+
+    <aside class="panel" aria-labelledby="history-heading">
+      <h2 id="history-heading">Season history</h2>
+
+      <div class="chart-box">
+        <canvas id="history-chart" role="img"
+                aria-label="Bar chart of this team's win rate in each season"></canvas>
+      </div>
+
+      <p><a href="index.html">&larr; Back to all teams</a></p>
+    </aside>
+  </main>
+
+  <script src="js/chart.umd.min.js"></script>
+  <script src="data/sample.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/team.js"></script>
+</body>
+</html>

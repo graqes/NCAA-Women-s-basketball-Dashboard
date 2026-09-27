@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCAA Women's Basketball - Season Overview</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#team-list">Skip to team rankings</a>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <h1>NCAA Women's Basketball Statistics</h1>
+        <p class="subtitle">Team rankings and league trends by season (2014-2026)</p>
+      </div>
+      <span id="source-pill" class="source-pill">Connecting...</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="rankings-heading">
+      <h2 id="rankings-heading">Team Rankings: <span id="season-label">...</span></h2>
+
+      <div class="controls">
+        <div class="field">
+          <label for="search">Find a team</label>
+          <input type="search" id="search" placeholder="e.g. Purdue, UConn, PUR"
+                 autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="season-select">Season</label>
+          <select id="season-select"></select>
+        </div>
+      </div>
+
+      <p id="list-status" class="status" role="status">Loading teams...</p>
+      <ul class="team-list" id="team-list"></ul>
+    </section>
+
+    <aside class="panel" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading">League timeline</h2>
+
+      <div class="chart-box">
+        <canvas id="trend-chart"
+                aria-label="Line chart of league average points, assists and fouls per game by season"
+                role="img"></canvas>
+      </div>
+
+      <div class="field" style="margin-bottom: 10px;">
+        <label for="trend-metric">Timeline metric</label>
+        <select id="trend-metric">
+          <option value="avg_points">Points per game</option>
+          <option value="avg_assists">Assists per game</option>
+          <option value="avg_fouls">Fouls per game</option>
+          <option value="avg_steals">Steals per game</option>
+          <option value="avg_blocks">Blocks per game</option>
+          <option value="avg_three_pt_attempts">3-point attempts per game</option>
+          <option value="avg_offensive_rebounds">Offensive rebounds per game</option>
+          <option value="avg_defensive_rebounds">Defensive rebounds per game</option>
+        </select>
+      </div>
+
+      <div id="season-timeline" role="list"></div>
+    </aside>
+  </main>
+
+  <footer class="page-footer">
+    Source: NCAA Women's Basketball dataset (BTAA Love Data Week), box scores via ESPN.
+    Seasons from 2013-14; teams with fewer than 15 games in a season are excluded.
+  </footer>
+
+  <script src="js/chart.umd.min.js"></script>
+  <script src="data/sample.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/overview.js"></script>
+</body>
+</html>
